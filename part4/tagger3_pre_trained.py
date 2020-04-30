@@ -60,7 +60,7 @@ class MlpTagger(nn.Module):
         x = self.embedding(x).view(-1, 250)
 
         # Finding the corresponding embeddings vectors of the suffixes and then concatenate them into one long vector.
-        suffixes = self.prefix_embeddings(suffixes).view(-1, 250)
+        suffixes = self.suffix_embeddings(suffixes).view(-1, 250)
 
         # For the first linear layer - the input is the sum.
         x = self.activation(self.linear1(prefixes + x + suffixes))
